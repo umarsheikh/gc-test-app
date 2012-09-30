@@ -12,7 +12,7 @@ function createUploader() {
 		element: $('#file-uploader').get(0),
 		multiple: false,
 		action: '/profile/logos',
-		params: {	authenticity_token: $('input[name=authenticity_token]').val()	},
+		params: {	authenticity_token: $('input[name=authenticity_token]').val()	},d
 		onComplete: function(id, fileName, responseJSON){
 			resetJcropImage(responseJSON);
 			updatePhotosList(responseJSON);
