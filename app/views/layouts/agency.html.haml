@@ -1,0 +1,22 @@
+!!!
+%html{:lang => "en-US"}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Application
+    = stylesheet_link_tag "application"
+    = csrf_meta_tags
+  %body
+    .wrapper
+      - if current_user.admin?
+        = render :partial => 'agency/shared/header'
+      - else
+        = render :partial => 'agency/shared/header_basic'    
+      = render :partial => 'agency/shared/topbar'
+      #content
+        - if current_user.admin?
+          = render :partial => 'agency/shared/menu'
+        - else
+          = render :partial => 'agency/shared/menu_basic'
+        = yield
+      = render :partial => 'agency/shared/footer'
+      = render :partial => 'agency/shared/scripts'

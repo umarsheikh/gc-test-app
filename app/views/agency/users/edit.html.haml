@@ -1,0 +1,73 @@
+.cont_right
+  .cont
+    %h3.title Edit User
+    = render :partial => "user_error", :locals => {:user => @user}
+    .browse.small
+      .contbrow
+        .modalwin
+          %span.add
+          %span Add User Picture
+          .modal.w680
+            %h2 Add User Picture
+            %section
+              .left.w317
+                .crop_container
+                  = image_tag("misc/picture_select.png", class: 'target js-jcrop')
+              .photos
+                %ul
+                  %li
+                    %a{:href => "#"}
+                      = image_tag "misc/picture.png"
+                  %li
+                    %a{:href => "#"}
+                      = image_tag "misc/picture.png"
+            %section
+              %span.left.filegray
+                %input.file{:style => "opacity: 0;", :type => "file"}/
+              %ul.buttons
+                %li
+                  %a.x.linkunderline{:href => "#"} Cancel
+                %li.or Or
+                %li
+                  %a.button.green2{:href => "#"} Save
+        %ul.foobrowse
+          %li.first
+            %a{:href => "#"}
+          %li.last
+            %a{:href => "#"}
+              %span
+    = form_for([@user]) do |f|
+      .form.dash
+        %p.inputsmall
+          = f.select :gender,  [['Mr', 'M'], ['Mrs', 'F']]
+        %p.input.w376
+          %span.bginput
+            %span.icn.usersm
+          = f.text_field :first_name, :class=>"text", 'data-placeholder' => "First Name"
+        %p.input.w376
+          %span.bginput
+            %span.icn.usersm
+          = f.text_field :last_name, :class=>"text", 'data-placeholder' => "Last Name"
+        %p.input.w376
+          %span.bginput
+            %span.icn.title
+          = f.text_field :title, :class=>"text", 'data-placeholder' => "Title"
+        %p.input.w376
+          %span.bginput
+            %span.icn.emailsm
+          = f.text_field :email, :class=>"text", 'data-placeholder' => "Email"
+        %p.input.w376
+          %span.bginput
+            %span.icn.perphonesm
+          = f.text_field :phone, :class=>"text", 'data-placeholder' => "Personal Phone"
+        %p.input.w376
+          %span.bginput
+            %span.icn.offphonesm
+          = f.text_field :office_phone, :class=>"text", 'data-placeholder' => "Office Phone"
+      .cont.notbor
+        %ul.buttons
+          %li
+            = link_to "Cancel", :back, :class => "linkunderline"
+          %li.or Or
+          %li
+            = f.submit "Save", :class => "button green2"

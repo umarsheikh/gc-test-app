@@ -1,0 +1,19 @@
+%header
+  %h2.logo= link_to @current_agency.name, "/"
+  .rightheader
+    %ul
+      %li
+        = link_to "Trip settings", edit_trip_path(id: 1)
+      %li
+        = link_to "Agency settings", edit_profile_path
+      %li
+        %a{:href => "#"} Help & Support
+    #dropdown
+      %a.dropdown{:href => "#dropdown"}
+        = image_tag("misc/profile.png", :class => "img")
+        = current_user.full_name
+        %span.icn_drop
+      .options
+        = link_to "Edit Profile", edit_user_path(current_user)
+        = link_to "Log Out", "#"
+/ HEADER END

@@ -1,0 +1,15 @@
+.DS_Store
+.rvmrc
+.bundle
+capybara-*.html
+db/*.sqlite3
+rerun.txt
+log/*.log
+tmp/**/*
+/log/*
+/tmp/*
+/public/system/*
+/public/uploads/*
+/coverage/
+/spec/tmp/*
+*.*~

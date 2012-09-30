@@ -1,0 +1,10 @@
+- if !resource.errors.empty?
+  %span.db_error
+    %span.title
+      = "Oops!"
+      %a{:style => "cursor:pointer;", :onclick => "$('.db_error').remove();"}
+        = image_tag("icn/icn_close.png",:alt => "Close")
+    - resource.errors.each do |head, msg|
+      %span.info
+        = msg
+    %span.hint-pointer

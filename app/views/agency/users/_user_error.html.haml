@@ -1,0 +1,10 @@
+- if !user.errors.empty?
+  %span.db_error
+    %span.title
+      Oops!, one error had ocurred
+      %a{:href => "#"}
+        = image_tag("icn/icn_close.png")
+    - user.errors.full_messages.each do |msg|
+      %span.info 
+        = "#{msg}"
+      %span.hint-pointer

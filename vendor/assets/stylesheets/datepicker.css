@@ -1,0 +1,639 @@
+.fd-hidden-input {
+	display:none;
+ }
+.fd-screen-reader {
+	position:absolute;
+	left:-999em;
+	top:0;
+	width:1px;
+	height:1px;
+	overflow:hidden; 
+	outline: 0 none;
+	-moz-outline: 0 none;
+} 
+.date-picker{
+    position:absolute;        
+    z-index:9999;
+    text-align:center;
+	font:900 0.8em/1em Verdana, Sans-Serif;
+	background:transparent;
+	-moz-user-select:none;
+    -khtml-user-select:none;
+    -webkit-user-select:none;                 
+}
+/* Styles for the static datePickers */
+.static-datepicker {
+    position:relative;        
+    top:5px;
+    left:0;
+    margin-bottom:1.5em;
+}
+.date-picker table {
+    width:auto;
+    height:auto;
+    border-collapse:separate;
+    color:#FFFFFF;         
+} 
+	.date-picker table tbody{ 
+		color: #999999;
+		background: #FFFFFF;
+		font-size: 8px;
+	}
+/* The iframe hack to cover selectlists in IE6 */
+.iehack {
+    position:absolute;
+    background:#fff;
+    z-index:9998;
+    padding:0;
+    border:0;
+    display:none;
+    margin:0;
+}
+/* The "button" created beside each input for popup datePickers */
+.date-picker-control span {
+    display:block;
+    width:23px;
+    height:23px;
+    overflow:hidden;
+    margin:auto 0;
+}
+.date-picker-button-active span,
+.date-picker-control:focus span,
+.date-picker-control:hover span,
+.date-picker-control:active span {
+    background: url('/assets/icn/icn_datepicker_active.png') no-repeat 0 0;
+}
+.date-picker-control:link,
+.date-picker-control:visited{
+    position:relative;
+    display: -moz-inline-stack;
+    border:0 none;
+    padding:0;
+    margin:0 4px;
+    background: url('/assets/icn/icn_datepicker.png') no-repeat 0 0;
+    min-width:18px;
+    line-height:1;
+    cursor:pointer;
+    visibility:visible;
+    text-decoration:none;
+    vertical-align:text-bottom;         
+ }
+/* If the calendar has a valid date use different icon */
+.date-picker-dateval:link,
+.date-picker-dateval:visited {
+    background: url('/assets/icn/icn_datepicker.png') no-repeat 0 0;
+} 
+/* IE 6 & 7 get fed another rule to show the normal button icon */
+.oldie-mhtml .date-picker-control:link,
+.oldie-mhtml .date-picker-control:visited {
+    /* IE7 gets an mhtml background image */
+    *background-image:url('mhtml:http://www.frequency-decoder.com/demo/datePicker/css/datepicker.css!calicon');
+    /* IE6 gets the filter treatment */
+    _background-image:none;
+    _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true,sizingMethod=crop,src='mhtml:http://www.frequency-decoder.com/demo/datePicker/css/datepicker.css!calicon');        
+} 
+/* IE 6 & 7 get fed another rule to show the icon displayed when a valid date selected */
+.oldie-mhtml .date-picker-dateval:link,
+.oldie-mhtml .date-picker-dateval:visited {
+	/* IE7 gets an mhtml png background image */
+	*background-image:url('mhtml:http://www.frequency-decoder.com/demo/datePicker/css/datepicker.css!calselected');
+	/* IE6 gets the filter treatment */
+	_background-image:none;
+	_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true,sizingMethod=crop,src='mhtml:http://www.frequency-decoder.com/demo/datePicker/css/datepicker.css!calselected');        
+}                           
+/* Hover states etc for the button */
+.date-picker-control:focus,
+.date-picker-control:hover,
+.date-picker-control:active,
+.date-picker-button-active:link,
+.date-picker-button-active:visited
+        { background: url('/assets/icn/icn_datepicker.png') no-repeat 0 0; }
+/* IE 6 & 7 button hover states */
+.oldie-mhtml .date-picker-button-active:link,
+.oldie-mhtml .date-picker-button-active:visited,
+.oldie-mhtml .date-picker-control:focus,
+.oldie-mhtml .date-picker-control:hover,
+.oldie-mhtml .date-picker-control:active
+        {
+        /* IE7 gets an mhtml background image */
+        *background-image:url('mhtml:http://www.frequency-decoder.com/demo/datePicker/css/datepicker.css!calhover');
+        /* IE6 gets the filter treatment */
+        _background-image:none;
+        _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true,sizingMethod=crop,src='mhtml:http://www.frequency-decoder.com/demo/datePicker/css/datepicker.css!calhover');             
+        }
+/* Disabled button */
+.date-picker-control-disabled:link,
+.date-picker-control-disabled:visited,
+.date-picker-control-disabled:hover,
+.date-picker-control-disabled:active
+        {
+        background: url('/assets/icn/icn_datepicker.png') no-repeat 0 0;
+        opacity:0.8;
+        cursor:default;
+        }
+/* IE8 disabled button */
+.oldie .date-picker-control-disabled:link,
+.oldie .date-picker-control-disabled:visited,
+.oldie .date-picker-control-disabled:hover,
+.oldie .date-picker-control-disabled:active
+        {
+        /* IE8: Can't do opacity + png images so we feed it an image that has had its opacity reduced to 80% in photoshop */
+        background: url('/assets/icn/icn_datepicker.png') no-repeat 0 0;
+        opacity:1; 
+        }
+/* IE 6 & 7 disabled button */
+.oldie-mhtml .date-picker-control-disabled:link,
+.oldie-mhtml .date-picker-control-disabled:visited,
+.oldie-mhtml .date-picker-control-disabled:hover,
+.oldie-mhtml .date-picker-control-disabled:active
+        {
+        /* IE7: MHTML semi-opaque png image */
+        *background-image:url('mhtml:http://www.frequency-decoder.com/demo/datePicker/css/datepicker.css!calopaque') !important;        
+        /* IE6: Filter treatment */
+        _background-image:none;
+        _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true,sizingMethod=crop,src='mhtml:http://www.frequency-decoder.com/demo/datePicker/css/datepicker.css!calopaque');                       
+        }
+.date-picker-control-disabled:hover span,
+.date-picker-control-disabled:active span
+        {
+        box-shadow:none !important;
+        }
+/* Feed IE6 the following rule, IE7 should handle the min-width declared above */
+.oldie-mhtml .date-picker-control
+        {
+        _width:18px;
+        }
+/* IE, Safari & Opera. Seperate CSS rule seems to be required. */
+.date-picker-control
+        {
+        display:inline-block;
+        }
+/* Default datepicker "button" styles */
+.date-picker th span
+        {
+        display:block;
+        padding:0;
+        margin:0;
+        text-align:center;
+        line-height:1em;
+        border:0 none;
+        background:transparent;
+        font-weight:bold;
+        cursor:pointer;
+        }
+/* The "month, year" display */
+.date-picker .month-display,
+.date-picker .year-display{
+    display:inline;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    font:normal 1.2em Verdana, Sans-Serif;
+}
+/* Generic button class for Next & Previous (both month & year) buttons */
+.prev-but, .next-but {
+    height: 27px;
+    left: 8px;
+    position: relative;
+    top: 7px;
+}
+.prev-but.prev-year{
+	background: url('/assets/icn/prev-year.png') no-repeat left top;
+    width: 9px;
+}
+.prev-but.prev-month{
+	background: url('/assets/icn/prev-month.png') no-repeat left top;
+	top: 9px;
+	width: 6px;
+}
+.next-but.next-month{
+	background: url('/assets/icn/next-month.png') no-repeat left top;
+	top: 9px;
+	width: 6px;
+}
+.next-but.next-year{
+	background: url('/assets/icn/next-year.png') no-repeat left top;
+	width: 9px;
+}
+.date-picker .prev-but,
+.date-picker .next-but {
+    cursor:pointer;
+    text-indent: -9999px;
+}
+.date-picker .prev-but,
+.date-picker .next-but,
+.date-picker .today-but{         
+    transition:all .2s ease-in-out;        
+ }
+/* Hover effect for Next & Previous (month, year) buttons */
+.date-picker .prev-but:hover,
+.date-picker .next-but:hover,
+.date-picker .today-but:hover{
+    
+}
+.date-picker .prev-but:hover,
+.date-picker .next-but:hover{
+        
+}
+/* Today button */
+.date-picker .today-but {
+	color: #FFFFFF !important;
+    text-align:center;
+    margin:0 auto;
+    width:100%;
+    text-decoration:none;
+    padding-top:0.3em;
+    vertical-align:middle;
+    cursor:pointer;
+    font-size: 11px;          
+}
+#yyyy-today-but{
+	color: #FFFFFF;
+}
+/* Disabled buttons */ 
+.date-picker-disabled .prev-but,
+.date-picker-disabled .next-but,
+.date-picker-disabled .today-but,
+.date-picker-disabled .prev-but:hover,
+.date-picker-disabled .next-but:hover,
+.date-picker-disabled .today-but:hover,
+.date-picker .prev-but.fd-disabled:hover,
+.date-picker .next-but.fd-disabled:hover,
+.date-picker .fd-disabled,
+.date-picker .fd-disabled:hover
+        {
+        color:#aaa;
+        cursor:default !important; 
+        opacity:1;        
+        }   
+.date-picker .prev-but.fd-disabled:hover,
+.date-picker .next-but.fd-disabled:hover
+        {
+        -webkit-transform:scale(1);
+        -moz-transform:scale(1);
+        -ie-transform:scale(1);
+        -o-transform:scale(1);
+        transform:scale(1);
+       
+        }
+/* The gradient background image */
+.date-picker table{
+	background: rgb(80,90,105); /* Old browsers */
+	background: linear-gradient(top, #505A69 0%, #404853 100%);
+}
+.date-picker table,
+.date-picker td,
+.date-picker tbody th,
+.date-picker .day-disabled,
+.date-picker .date-picker-hover.day-disabled,
+.date-picker .date-picker-unused,
+.date-picker .month-out {
+	 
+}
+/* IE 6 & 7 get an MHTML encoded image (a gif so no AlphaImageLoader needed) */
+.oldie-mhtml .date-picker table,
+.oldie-mhtml .date-picker td,
+.oldie-mhtml .date-picker tbody th,
+.oldie-mhtml .date-picker .day-disabled,
+.oldie-mhtml .date-picker .date-picker-hover.day-disabled,
+.oldie-mhtml .date-picker .date-picker-unused,
+.oldie-mhtml .date-picker .month-out
+        {
+        background-image:url(mhtml:http://www.frequency-decoder.com/demo/datePicker/css/datepicker.css!greygradient);
+        } 
+.date-picker table {
+    position:relative;               
+    margin:0;
+    padding:0;        
+    background-position:0 -20px; 
+    text-align:center;
+    padding:0.3em; 
+    width:auto;             
+    empty-cells:show;
+    z-index:2;   
+    border-radius:5px;                           
+}
+/* Common TD & TH styling */
+.date-picker td,
+.date-picker tbody th{                 
+    border:0 none;
+    padding:0;
+    text-align:center;
+    vertical-align:middle;               
+    cursor:pointer;
+    width:3em;
+    height:20px;   
+    overflow:hidden;      
+    outline:transparent none 0px;
+    text-transform:none; 
+}
+.date-picker thm {
+    border:0 none;
+    padding:0;        
+    font-weight:bold;
+    color:#333;
+    text-align:center;
+    vertical-align:middle; 
+    text-transform:none;        
+}
+.date-picker .date-picker-week-header {                                 
+    font-style:oblique;  
+    background:transparent;
+    cursor:default;         
+}
+.date-picker .date-picker-thead .date-picker-week-header {                          
+    border:0 none;
+    cursor:help;         
+}
+/* The "mon tue wed etc" day header styles */
+.date-picker .date-picker-day-header {
+        cursor:help;
+        border:0 none;
+        padding:0 0 0.2em 0;
+        text-transform:lowercase;
+        height:auto;
+}
+/* tfoot status bar */
+.date-picker .date-picker-statusbar
+        {
+        cursor:default;
+        font-weight:normal;
+        text-transform:uppercase;
+        letter-spacing:0.1em;
+        border:0 none;
+        background:#fff;
+        height:2.8em;
+        }
+/* TD cell that is _not_ used to display a day of the month */
+.date-picker .date-picker-unused
+        {
+        border-color:#dcdcdc;          
+        cursor:default !important;
+        background-position:0 -25px;
+        }
+/* The TH cell used to display the "month, year" title */
+.date-picker .date-picker-title
+        {
+        width:auto;
+        height:auto;
+        padding:0.4em 0;
+        }
+/* The "todays date" cell style */
+.date-picker .date-picker-today {
+	background: rgb(229,229,229); /* Old browsers */
+	background: linear-gradient(top, #E5E5E5 0%, #F7F7F7 100%);
+	border-radius: 5px;
+	border: 1px solid #D1D1D1;
+	box-shadow: inset 1px 1px #FFFFFF, inset -1px -1px #FFFFFF;        
+}
+.oldie-mhtml .date-picker .date-picker-today{
+        
+} 
+.date-picker .month-out.date-picker-highlight {
+        color:#404853;
+}
+/* The "highlight days" style */
+.date-picker .date-picker-highlight{
+    color: #404853;
+}
+/* The "active cursor" style */
+.date-picker .date-picker-hover,
+.date-picker .month-out.date-picker-hover
+{
+   	background: rgb(229,229,229); /* Old browsers */
+   	background: linear-gradient(top, #E5E5E5 0%, #F7F7F7 100%);
+   	border-radius: 5px;
+   	box-shadow: inset 1px 1px #D1D1D1, inset -1px -1px #D1D1D1;      
+}
+.oldie-mhtml .date-picker .date-picker-hover,
+.oldie-mhtml .date-picker .month-out.date-picker-hover{
+        background-image:url('mhtml:http://www.frequency-decoder.com/demo/datePicker/css/datepicker.css!cursor');
+        background-position:0 0;
+}
+/* The "disabled days" style */
+.date-picker .day-disabled{          
+    color:#888;
+    cursor:default;
+    text-decoration:line-through;
+    background-position:0 -15px;
+} 
+.date-picker .month-out{
+    color:#aaa;
+    background-position:0 -25px;
+} 
+/* The "selected date" style - color changed below also */
+.date-picker .date-picker-selected-date
+        {
+        border-color:#888 !important;
+        border-color:rgba(7,7,7,.6) !important;
+        }
+/* The date "out of range" style */
+.date-picker .out-of-range,
+.date-picker .not-selectable
+        {           
+        color:#ccc;
+        font-style:oblique;
+        background:#fcfcfc;
+        cursor:default;              
+        } 
+/* Week number "out of range" && "month-out" styles */
+.date-picker th.month-out,
+.date-picker th.out-of-range
+        {
+        color:#aaa;
+        font-style:oblique;
+        background:#fcfcfc;          
+        }
+/* Week numbers "out of range" */
+.date-picker .out-of-range
+        {
+        opacity:0.6;
+        }  
+/* Used when the entire grid is full but the next/prev months dates cannot be selected */
+.date-picker .not-selectable
+        {         
+        opacity:0.8;
+        }
+/* IE gets the filter treatment */
+.oldie-mhtml .date-picker .out-of-range
+        {
+        filter:alpha(opacity=60);
+        }
+.oldie-mhtml .date-picker .not-selectable
+        {
+        filter:alpha(opacity=80);
+        }
+.date-picker tr {
+        display:table-row;
+}
+	.date-picker tbody tr{
+		background-color: #FFFFFF;
+	}
+.date-picker sup{
+    font-size:0.86em;
+    letter-spacing:normal;
+    text-transform:none;
+    height: 0;
+	line-height: 1;
+	position: relative;
+	top:-0.2em;	
+	vertical-align: baseline !important;
+	vertical-align: top;  
+}
+	.date-picker-day-header{
+		border: 1px solid #666666;
+	}
+.date-picker .date-picker-day-header,
+.date-picker .month-display,
+.date-picker .year-display  { 
+	background-color: #FFFFFF;
+	color: #333333;           
+	font-size: 8px; 
+	text-align: center;
+	text-transform: uppercase;
+	line-height: 20px;
+}
+	.date-picker .date-picker-day-header {
+		border-bottom: 1px solid #D1D1D1;
+	}
+.date-picker .month-display,
+.date-picker .year-display{            
+        cursor:default;                            
+}
+.date-picker td:focus,
+.date-picker .date-picker-hover {
+	overflow:hidden;
+	outline:0px solid #ff0000;        
+	-moz-outline: 0 none;
+	-o-highlight:0 none;
+}
+.date-picker-focus .date-picker-hover,
+.date-picker-control:focus span  {
+	-moz-animation:pulse 2s infinite;
+	-webkit-animation:pulse 2s infinite;
+	-ms-animation:pulse 2s infinite;
+}
+/* The "selected date" style */
+.date-picker .date-picker-selected-date {
+	color:#333;
+	color:rgba(3,3,3,.8);
+}
+.static-datepicker table {
+    -webkit-box-shadow:0 0 0 transparent;
+    -moz-box-shadow:0 0 0 transparent;   
+    box-shadow:0 0 0 transparent;           
+}               
+.date-picker-focus table {
+    outline:none;
+    -webkit-box-shadow:0px 0px 5px #aaa;
+    -moz-box-shadow:0px 0px 5px #aaa;
+    box-shadow:0px 0px 5px #aaa; 
+}
+/* Draggable datepickers */
+.date-picker .drag-enabled,
+.date-picker .drag-enabled span {
+	background: rgb(80,90,105); /* Old browsers */
+	background: linear-gradient(top, #505A69 0%, #404853 100%);
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+    cursor:move;
+    color: #FFFFFF;
+    font-size: 11px;
+    text-align: center;
+    padding: 0px;
+} 
+	.date-picker .date-picker-title.drag-enabled {
+		border: 1px solid #647183;
+		box-shadow: 1px 1px #333A43, -1px -1px #333A43;
+	} 
+	 
+/* Disabled datePicker */
+.date-picker-disabled table {
+    opacity:.8 !important;
+}
+.oldie .date-picker-disabled table {
+ 	filter:alpha(opacity=80);                  
+ }
+.date-picker-disabled,
+.date-picker-disabled td,
+.date-picker-disabled th,
+.date-picker-disabled th span
+        {
+        cursor:default !important;          
+        }
+.date-picker-disabled .prev-but:hover,
+.date-picker-disabled .next-but:hover {
+        -webkit-transform:scale(1);
+        -moz-transform:scale(1);
+        -ie-transform:scale(1);
+        -o-transform:scale(1);
+        transform:scale(1);
+}
+body.fd-drag-active {
+        -webkit-user-select:none;
+        -moz-user-select:none;
+        -khtml-user-select:none;
+        -webkit-touch-callout:none; 
+        user-select:none;     
+}
+/* Glow effect for the focused (keyboard active) cursor cell */
+@-webkit-keyframes pulse {
+0%      {
+        box-shadow:0 0 4px rgba(100, 130, 170, 0.5);
+        }
+20%     {
+        box-shadow:0 0 4px rgba(70, 130, 170, 0.6);
+        }
+40%     {
+        box-shadow:0 0 5px rgba(40, 130, 170, 0.7);
+        }
+60%     {
+        box-shadow:0 0 6px rgba(10, 130, 170, 0.8);
+        }
+80%     {
+        box-shadow:0 0 5px rgba(40, 130, 170, 0.7);
+        }
+100%    {
+        box-shadow:0 0 4px rgba(70, 130, 170, 0.6);
+        }
+}
+@-moz-keyframes pulse {
+0%      {
+        box-shadow:0 0 4px rgba(100, 130, 170, 0.5);
+        }
+20%     {
+        box-shadow:0 0 4px rgba(70, 130, 170, 0.6);
+        }
+40%     {
+        box-shadow:0 0 5px rgba(40, 130, 170, 0.7);
+        }
+60%     {
+        box-shadow:0 0 6px rgba(10, 130, 170, 0.8);
+        }
+80%     {
+        box-shadow:0 0 5px rgba(40, 130, 170, 0.7);
+        }
+100%    {
+        box-shadow:0 0 4px rgba(70, 130, 170, 0.6);
+        }
+}
+@-ms-keyframes pulse {
+0%      {
+        box-shadow:0 0 4px rgba(100, 130, 170, 0.5);
+        }
+20%     {
+        box-shadow:0 0 4px rgba(70, 130, 170, 0.6);
+        }
+40%     {
+        box-shadow:0 0 5px rgba(40, 130, 170, 0.7);
+        }
+60%     {
+        box-shadow:0 0 6px rgba(10, 130, 170, 0.8);
+        }
+80%     {
+        box-shadow:0 0 5px rgba(40, 130, 170, 0.7);
+        }
+100%    {
+        box-shadow:0 0 4px rgba(70, 130, 170, 0.6);
+        }
+}
+

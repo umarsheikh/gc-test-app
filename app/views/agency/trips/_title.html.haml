@@ -1,0 +1,5 @@
+- if trip.new_record?
+  %h3.title New Trip
+- else
+  %h3.title
+    = link_to trip.name, trip_path(trip)

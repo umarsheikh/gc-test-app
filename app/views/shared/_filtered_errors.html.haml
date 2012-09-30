@@ -1,0 +1,11 @@
+- unless model.errors.empty?
+  %span.db_error
+    %span.title
+      Oops!
+      = link_to image_tag("icn/icn_close.png", :alt => "Close"), "#"
+    %span.info
+      = "There were errors during this operation:"
+      - model.errors.each do |attrb, message|
+        - next if attrb.to_s.index('.') 
+        %p="- #{attrb.to_s.humanize} #{message}"
+    %span.hint-pointer

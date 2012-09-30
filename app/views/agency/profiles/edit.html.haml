@@ -1,0 +1,49 @@
+.cont_right
+  = form_for(@agency, :url => profile_path, :html => { :method => :put }) do |f|
+    .cont
+      = render :partial => 'shared/filtered_errors', :locals => {:model => @agency}
+      %h3.title Agency Profile
+      %h3 Change agency logo
+      .left.w325
+        .browse.big
+          .contbrow
+            .modalwin
+              %span.add
+              .modal.w680
+                %h2 Select agency logo
+                %section
+                  .left.w317
+                    .crop_container
+                      = image_tag("misc/picture_select.png", class: 'target js-jcrop')
+                  .photos
+                    %ul
+                      - @agency.logos.each do |logo|
+                        - dimensions = logo.image.capture_size_after_retrieve_from_cache("").map(&:to_i)
+                        %li
+                          %a{:href => "#", :"data-url" => logo.image.url, :"data-width" => dimensions[0], :"data-height" => dimensions[1]}
+                            = image_tag(logo.image.thumb.url)
+                %section
+                  #file-uploader.left
+                    %noscript
+                      %p Please enable JavaScript to use file uploader.
+                  %ul.buttons
+                    %li
+                      %a.x.linkunderline{:href => "#"} Cancel
+                    %li.or Or
+                    %li
+                      %a.button.green2{:href => "#"} Save
+            %ul.foobrowse
+              %li.first
+                %a{:href => "#"}
+              %li.last
+                %a{:href => "#"}
+                  %span
+        %p.inputfooter Prefered dimensions 300px x 100px
+
+    .cont.notbor
+      %ul.buttons
+        %li
+          %a.linkunderline{:href => root_url} Cancel
+        %li.or Or
+        %li
+          = f.submit "Finish", :class => "button green2"

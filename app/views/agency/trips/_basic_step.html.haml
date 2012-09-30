@@ -1,0 +1,79 @@
+= form_for([@trip]) do |f|
+  = hidden_field_tag :step, @current_step
+
+  .cont_right
+    .cont
+      = render 'title', trip: @trip
+      .step
+        %ul
+          %li
+            = image_tag("icn/icn_steps.png")
+          %li.active
+            Step 1
+            %span
+
+            %li= "Step2"
+            %li= "Step3"
+            %li= "Step4"
+            %li= "Step5"
+
+      = render :partial => 'agency/shared/general_error', :locals => {:resource => @trip}
+      %h3 Basic Information
+      .left
+        .browse.big2
+          .contbrow
+            .modalwin
+              %span.add
+              %span.big Add trip picture
+              .modal.w680
+                %h2 Select Trip Picture
+                %section
+                  .left.w317
+                    .crop_container
+                      = image_tag("misc/picture_select.png", class: 'target js-jcrop')
+                  .photos
+                    %ul
+                      %li
+                        %a{:href => "#"}
+                          = image_tag("misc/picture.png")
+                      %li
+                        %a{:href => "#"}
+                          = image_tag("misc/picture.png")
+                      %li
+                        %a{:href => "#"}
+                          = image_tag("misc/picture.png")
+                %section
+                  %span.left.filegray
+                    %input.file{:style => "opacity: 0;", :type => "file"}/
+                  %ul.buttons
+                    %li
+                      %a.x.linkunderline{:href => "#"} Cancel
+                    %li.or Or
+                    %li
+                      %a.button.green2{:href => "#"} Save
+            %ul.foobrowse
+              %li.first
+                %a{:href => "#"}
+              %li.last
+                %a{:href => "#"}
+                  %span
+      .form.ageprof
+        %p.input.w280
+          %span.bginput
+            %span.icn.trip
+          = f.text_field :name, :class=>"text", 'data-placeholder' => "Trip Name *"
+        %p.input.w280
+          %span.bginput
+            %span.icn.destination
+          = f.text_field :destination, :class=>"text", 'data-placeholder' => "Destination *"
+        %p.input.w280
+          %span.bginput
+            %span.icn.group
+          = f.text_field :group_name, :class=>"text", 'data-placeholder' => "Group Name *"
+      .clear
+      
+      %ul.buttons
+        %li
+          %a.button.disabled{} Back
+        %li
+          = f.submit "Next", :class => "button green2"

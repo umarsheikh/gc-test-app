@@ -1,0 +1,53 @@
+
+#overlay { /* Black background */
+	background: #000;
+	content: '';
+	cursor: default;
+	display: none;
+	filter: alpha(opacity=50);
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+	height: 100%;
+	min-height: 640px;
+	opacity: 0.5;
+	position: fixed;
+	top: 0; left: 0;
+	width: 100%;
+	z-index: 9999;
+	zoom: 1;
+}
+	.modalwin .modalwin .modal{
+		border-bottom: none;
+	}
+	
+		.modalwin.on:after { 
+			display: block; 
+			/*animation: fadein 0.5s;*/
+		}
+		
+		@keyframes fadein {
+			0% { opacity: 0; }
+			100% { opacity: 1; }
+		}
+
+.modal { /* Modal Tooltip */
+	display: none;
+	background: #FFFFFF;
+	border: 1px solid #CCCCCC;
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+	position: fixed;
+	top:  50px;
+	z-index: 10000;
+}
+
+	.modal.w680{
+		left: 50%;
+		margin-left: -340px;
+		width: 680px;
+	}
+	.modal.w350{
+		left: 50%;
+		margin-left: -175px;
+		top: 10%;
+		width: 350px;
+	}

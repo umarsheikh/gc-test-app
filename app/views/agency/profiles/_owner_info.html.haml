@@ -1,0 +1,21 @@
+.cont
+  = render :partial => 'shared/errors', :locals => {:model => owner}
+  %h3.title Your Info
+  .clear.form
+    = f.simple_fields_for :owner do |uf|
+      %p.inline.input.w280{:class => "#{owner.errors.include?(:first_name) ? "error" : ""}"}
+        %span.bginput
+          %span.icn.usersm
+        = uf.text_field :first_name, :class => "text", :"data-placeholder" => "First Name"
+      %p.inline.input.w280.nmr{:class => "#{owner.errors.include?(:last_name) ? "error" : ""}"}
+        %span.bginput
+          %span.icn.usersm
+        = uf.text_field :last_name, :class => "text", :"data-placeholder" => "Last Name"
+      %p.inline.input.w280
+        %span.bginput
+          %span.icn.phone
+        = uf.text_field :phone, :class => "text", :"data-placeholder" => "Phone Number"
+      %p.inline.input.w280.nmr
+        %span.bginput
+          %span.icn.title
+        = uf.text_field :title, :class => "text", :"data-placeholder" => "Title"

@@ -1,0 +1,9 @@
+- flash.each do|key,value|
+  %span{:class => "#{key ==:error ? "db_error" : "db_ok"}"}
+    %span.title
+      = "#{key ==:error ? "Oops!" : "Congratulations!"}"
+      %a{:style => "cursor:pointer;", :onclick => "$('.db_error').remove();$('.db_ok').remove();"}
+        = image_tag("icn/icn_close.png",:alt => "Close")
+    %span.info
+      =  value
+    %span.hint-pointer

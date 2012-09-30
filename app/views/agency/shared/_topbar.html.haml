@@ -1,0 +1,7 @@
+.menu
+  %ul
+    %li.first
+      = render :partial => 'agency/shared/notifications'
+    %li.search
+      %form#search_form{:action => "", :method => "get"}
+        %input.bg_search{:onblur => "if (this.value == '') {this.value = 'Search';}", :onfocus => "if (this.value == 'Search') {this.value = '';}", :type => "text", :value => "Search"}/

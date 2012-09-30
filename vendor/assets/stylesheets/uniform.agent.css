@@ -1,0 +1,465 @@
+/*
+
+Uniform Theme: Agent
+Version: 1.0
+By: Collin Allen
+License: Creative Commons Share Alike
+---
+For use with the Uniform plugin:
+http://pixelmatrixdesign.com/uniform/
+
+*/
+
+/* Global Declaration */
+
+div.selector, 
+div.selector span,
+div.checker span,
+div.radio span,
+div.uploader,
+div.uploader span.action {
+  background-image: url('/assets/icn/sprite-agent.png');
+  background-repeat: no-repeat;
+}
+
+.selector, 
+.radio, 
+.checker, 
+.uploader, 
+.selector *, 
+.radio *, 
+.checker *, 
+.uploader *{
+	margin: 0;
+	padding: 0;
+}
+
+/* SPRITES */
+
+/* Select */
+
+div.selector {
+    background-position: -483px -163px;
+    height: 48px;
+    line-height: 32px;
+}
+
+div.selector span {
+  background-position: right 0px;
+  height: 47px;
+  line-height: 48px;
+}
+
+div.selector select {
+   	top: 0px;
+	left: 0px;
+}
+
+	.small div.selector {
+	    background-position: -483px -214px;
+	    float: left;
+	    font-size: 10px;
+	    height: 22px !important;
+	    line-height: 22px !important;
+	}
+	
+	.small div.selector span {
+	  background-position: right -58px;
+	  height: 22px;
+	  line-height: 22px;
+	}
+	
+	.small div.selector select {
+		float: left;
+		height: 19px;
+	 	top: 0px;
+		left: 0px;
+	}
+		
+
+/* Checkbox */
+
+div.checker {
+  width: 23px;
+  height: 23px;
+}
+
+div.checker input {
+  width: 23px;
+  height: 23px;
+}
+
+
+div.checker span {
+  background-position: 0px -320px;
+  height: 23px;
+  width: 23px;
+}
+		.checkwhite div.checker span{
+			background-position: 0px -291px;
+			height: 23px;
+			width: 23px;
+		}
+
+div.checker:active span, 
+div.checker.active span {
+	background-position: -23px -320px;
+}
+	.checkwhite div.checker:active span, 
+	.checkwhite div.checker.active span{
+		background-position: -23px -291px;
+	}
+
+div.checker.focus span,
+div.checker:hover span {
+	background-position: -46px -320px;
+}
+	.checkwhite div.checker.focus span,
+	.checkwhite div.checker:hover span {
+		background-position: -46px -291px;
+	}
+
+div.checker.focus:active span,
+div.checker:active:hover span,
+div.checker.active:hover span,
+div.checker.focus.active span {
+	background-position: -69px -320px;
+}
+	.checkwhite div.checker.focus:active span,
+	.checkwhite div.checker:active:hover span,
+	.checkwhite div.checker.active:hover span,
+	.checkwhite div.checker.focus.active span {
+		background-position: -69px -291px;
+	}
+
+div.checker span.checked {
+	background-position: -92px -320px;
+}
+	.checkwhite div.checker span.checked {
+		background-position: -92px -291px;
+	}
+
+div.checker:active span.checked, 
+div.checker.active span.checked {
+	background-position: -115px -320px;
+}
+	.checkwhite div.checker:active span.checked, 
+	.checkwhite div.checker.active span.checked {
+		background-position: -115px -291px;
+	}
+
+div.checker.focus span.checked,
+div.checker:hover span.checked {
+	background-position: -138px -320px;
+}
+	.checkwhite div.checker.focus span.checked,
+	.checkwhite div.checker:hover span.checked {
+		background-position: -138px -291px;
+	}
+
+div.checker.focus:active span.checked,
+div.checker:hover:active span.checked,
+div.checker.active:hover span.checked,
+div.checker.active.focus span.checked {
+	background-position: -161px -320px;
+}
+	.checkwhite div.checker.focus:active span.checked,
+	.checkwhite div.checker:hover:active span.checked,
+	.checkwhite div.checker.active:hover span.checked,
+	.checkwhite div.checker.active.focus span.checked {
+		background-position: -161px -291px;
+	}
+
+div.checker.disabled span,
+div.checker.disabled:active span,
+div.checker.disabled.active span {
+	background-position: -184px -320px;
+}
+	.checkwhite div.checker.disabled span,
+	.checkwhite div.checker.disabled:active span,
+	.checkwhite div.checker.disabled.active span {
+		background-position: -184px -291px;
+	}
+
+div.checker.disabled span.checked,
+div.checker.disabled:active span.checked,
+div.checker.disabled.active span.checked {
+	background-position: -207px -320px;
+}
+	.checkwhite div.checker.disabled span.checked,
+	.checkwhite div.checker.disabled:active span.checked,
+	.checkwhite div.checker.disabled.active span.checked {
+		background-position: -207px -291px;
+	}
+
+/* radio */
+
+div.radio {
+  width: 23px;
+  height: 23px;
+}
+
+div.radio input {
+  width: 23px;
+  height: 23px;
+}
+
+div.radio span {
+  height: 23px;
+  width: 23px;
+  background-position: 0px -343px;
+}
+
+div.radio:active span, 
+div.radio.active span {
+	background-position: -23px -343px;
+}
+
+div.radio.focus span, 
+div.radio:hover span {
+	background-position: -46px -343px;
+}
+
+div.radio.focus:active span,
+div.radio:active:hover span,
+div.radio.active:hover span,
+div.radio.active.focus span {
+	background-position: -69px -343px;
+}
+
+div.radio span.checked {
+	background-position: -92px -343px;
+}
+
+div.radio:active span.checked,
+div.radio.active span.checked {
+	background-position: -115px -343px;
+}
+
+div.radio.focus span.checked, div.radio:hover span.checked {
+	background-position: -138px -343px;
+}
+
+div.radio.focus:active span.checked, 
+div.radio:hover:active span.checked,
+div.radio.focus.active span.checked,
+div.radio.active:hover span.checked {
+	background-position: -161px -343px;
+}
+
+div.radio.disabled span,
+div.radio.disabled:active span,
+div.radio.disabled.active span {
+	background-position: -184px -343px;
+}
+
+div.radio.disabled span.checked,
+div.radio.disabled:active span.checked,
+div.radio.disabled.active span.checked {
+	background-position: -207px -343px;
+}
+
+/* uploader */
+
+div.uploader span.action {
+  background-position: -233px -298px;
+  height: 24px;
+  line-height: 24px;
+  margin-bottom: 0px;
+}
+
+/* PRESENTATION */
+
+/* Select */
+div.selector {
+    /*display: inline-block;*/
+}
+
+div.selector select {
+    height: 48px;
+}
+
+div.selector span {
+  color: #666666;
+  padding: 0 58px 0 2px;
+  cursor: pointer;
+}
+
+div.selector span {
+    height: 48px;
+}
+
+div.selector.disabled span {
+	color: #666666;
+}
+
+/* checker */
+div.checker {
+  margin-right: 10px;
+}
+
+/* radio */
+div.radio {
+  margin-left: 5px;
+}
+
+/* Uploader */
+div.uploader {
+overflow: hidden;
+  cursor: pointer;
+}
+
+div.uploader span.action {
+  color: #666666;
+  font-size: 14px;
+  width: 85px;
+  text-align: center;
+}
+
+div.uploader span.filename {
+  display: none !important;
+}
+/*
+
+CORE FUNCTIONALITY 
+
+Not advised to edit stuff below this line
+-----------------------------------------------------
+*/
+
+.selector select:focus, .radio input:focus, .checker input:focus, uploader input:focus {
+  outline: 0;
+}
+
+/* Select */
+
+ div.selector {
+	position: relative;
+	padding-left: 10px;
+}
+
+ div.selector span {
+	display: block;
+	float: left;
+}
+
+ div.selector select {
+	position: absolute;
+	opacity: 0;
+}
+
+/* checker */
+
+ div.checker {
+	position: relative;
+	float: left;
+}
+
+ div.checker span {
+	display: block;
+	float: left;
+	text-align: center;
+}
+
+div.checker input {
+  opacity: 0;
+  display: inline-block;
+}
+
+/* radio */
+
+div.radio {
+	position: relative;
+	float: left;
+}
+
+div.radio span {
+	display: block;
+	float: left;
+	text-align: center;
+}
+
+ div.radio input {
+  opacity: 0;
+  text-align: center;
+  display: inline-block;
+}
+
+/* uploader */
+
+div.uploader {
+  position: relative;
+}
+
+div.uploader span.action {
+  float: left;
+  display: inline;
+  padding: 4px 0px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+div.uploader span.filename {
+  padding: 0px 10px;
+  float: left;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+div.uploader input {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  height: 31px;
+  width: 84px;
+}	
+	
+	.uploadblue div.uploader {
+	    background-position: right -88px;
+	    height: 31px;
+	    width: 313px;
+	}
+		.uploadblue div.uploader input {
+		  opacity: 0;
+		  position: absolute;
+		  top: 0;
+		  right: 0;
+		  bottom: 0;
+		  height: 31px;
+		  width: 210px;
+		}
+	
+	.uploadblue div.uploader span.filename { display: block !important;}
+	
+	.uploadblue div.uploader span.action {
+		background-position: right -88px;
+	    color: #FFFFFF;
+	    display: block;
+	    float: left;
+	    height: 31px;
+	    line-height: 31px;
+	    margin-left: 0;
+	    padding: 0;
+	    width: 85px;
+	}
+	
+	.uploadblue div.uploader span.filename {
+		  background-position: right -88px;
+		  color: #666666;
+		  font-size: 13px;
+		  height: 30px;
+		  /* change this line to adjust positioning of filename area */
+		  margin: 2px 0px 2px 2px;
+		  line-height: 30px;
+		  width: 206px;
+	}
+	
+	.filegray div.uploader{
+		overflow: hidden;
+		top: -1px;
+	}
+	 
