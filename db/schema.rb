@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120920165149) do
+ActiveRecord::Schema.define(:version => 20121202151900) do
 
   create_table "agencies", :force => true do |t|
     t.string   "name"
@@ -36,6 +36,14 @@ ActiveRecord::Schema.define(:version => 20120920165149) do
     t.string   "image"
   end
 
+  create_table "pictures", :force => true do |t|
+    t.string   "image"
+    t.string   "imageable_type"
+    t.integer  "imageable_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
   create_table "roles", :force => true do |t|
     t.string   "name"
     t.string   "description"
@@ -51,9 +59,9 @@ ActiveRecord::Schema.define(:version => 20120920165149) do
   end
 
   create_table "trips", :force => true do |t|
-    t.string   "name",                               :null => false
-    t.string   "destination",                        :null => false
-    t.string   "group_name",                         :null => false
+    t.string "name",        :null => false
+    t.string "destination", :null => false
+    t.string "group_name",  :null => false
   end
 
   create_table "users", :force => true do |t|

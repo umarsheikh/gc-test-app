@@ -27,8 +27,14 @@ There are 3 image uploaders:
   - Option 2: Create Picture models for User & Trip (ie. Avatar, TripPicture).
 
 2. Please state your choice of option 1 or option 2, and the reasons for your decisions (pro & con).  Please answer this in the README.md
+Option 1 seems better. The pros are:
+a) Each image file is just data, with its attributes. Also, it has the same information no matter if it is assocaited with user, agency, or any other record. Our program should be smart enough to store images easily, but then the business logic should decide which image type, or what it is, whether it is a picture, or an avatar, or a logo etc. These differences can be represented in the type column, which will let our program decide how to interact with it. If we create separate tabels for them, then we are essentially creating different names for the same data just because they differ in the associations.
+b) all have the same data, so makes sense to have just one table, and determine who it is associated with through polymorphic associations
 
-3. Use Test Driven Development (Rspec + Capybara) to write acceptance/request tests for the uplaod UI workflow.  
+The cons include:
+a) extra imageable_type and imageable_name columns
+
+3. Use Test Driven Development (Rspec + Capybara) to write acceptance/request tests for the uplaod UI workflow.
 
 4. Implement a crop image handler using carrierwave & rmagick (You might want to add a 'Crop' button on the Picture selection window).
 

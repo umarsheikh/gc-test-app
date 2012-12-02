@@ -11,7 +11,7 @@ class Agency < ActiveRecord::Base
 
   has_many :admins, :class_name => 'User', :conditions => {:role_id => Role.agency_admin.try(:id)}
   has_many :users
-
+  has_many :pictures, :as => :imageable
   # just because trip has_many :addons, doesn't mean we can automagically
   # use the following association (has_many :through needs join models)
   # has_many :addons, :through => :trips

@@ -17,7 +17,7 @@
                       = image_tag("misc/picture_select.png", class: 'target js-jcrop')
                   .photos
                     %ul
-                      - @agency.logos.each do |logo|
+                      - @agency.pictures.each do |logo|
                         - dimensions = logo.image.capture_size_after_retrieve_from_cache("").map(&:to_i)
                         %li
                           %a{:href => "#", :"data-url" => logo.image.url, :"data-width" => dimensions[0], :"data-height" => dimensions[1]}
